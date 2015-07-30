@@ -20,6 +20,7 @@ zh-CN:
         bio: "简介"
         created_at: "创建于"
         email: Email
+        invitation_code: "邀请码"
         locale: "语言"
         name: "全名"
         password: "密码"
@@ -133,6 +134,7 @@ zh-CN:
       logout: "退出"
       profile: "个人资料"
       settings: "设置"
+      invite: "邀请"
       sign_in: "登录"
       sign_up: "注册"
       topics: "话题"
@@ -313,6 +315,23 @@ zh-CN:
       show:
         confirm_fail: "确认失败"
         confirmation_toke_invalid_or_expired_please_resend: "确认码无效或已过期，请重新发送确认邮件。"
+    invitations:
+      index:
+        get_invitation: "获取邀请码"
+        no_invitations_yet: "还没有获取邀请码"
+        user_s_invitations: "%{name}的邀请码"
+        your_invitatioins_are: "有了邀请码快去邀请朋友吧！"
+        invitations_left: "你还能获得 %{number} 个邀请码"
+        invitations_used: "已经使用过的邀请码"
+      create:
+        invitations_left: "你还能获得 %{number} 个邀请码"
+      show:
+        invitation: "邀请"
+        click_to_share: "点击按钮分享！"
+        invitation_from: "邀请者"
+        your_invitation_is: "你的邀请码是："
+        click_to_signup: "点击下方按扭直接注册"
+        signup_now: "现在注册"
     likes:
       index:
         no_comment_yet: "还没有评论"
@@ -323,6 +342,7 @@ zh-CN:
       sign_up: "注册"
       your_email: "你的邮箱地址"
       your_full_name: "你的全名"
+      your_invitation_code: "你的邀请码"
     passwords:
       edit:
         password_reset: "密码重置"

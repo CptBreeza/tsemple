@@ -1,0 +1,21 @@
+- @page_title = t '.invitation'
+
+.main
+  .container
+    .row
+      .col-md-12
+        .panel
+          .panel-body.invitation_heading
+            = icon 'hand-o-up', class: 'pull-right'
+            p.pull-right.tips = t '.click_to_share'
+            p Tsemple
+            p
+              = t '.invitation_from'
+              a< href="#{user_root_url(@invitation.inviter.username)}" ="@#{@invitation.inviter.username}"
+            .invitation_info_area
+              p = t '.your_invitation_is'
+              .invitation_box
+                p = @invitation_code
+              p = t '.click_to_signup'
+              .signup_with_invitation
+                a.btn.btn-success href="#{signup_url}?invitation_code=#{@invitation.code}" = t '.signup_now'

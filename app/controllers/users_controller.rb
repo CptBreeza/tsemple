@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   def new
     store_location params[:return_to]
     @user = User.new
+
+    @invitation_code = params[:invitation_code] if params[:invitation_code].present?
   end
 
   def create
-    @user = User.new params.require(:user).permit(:username, :email, :name, :password).merge(locale: locale)
-    if @user.save
+    @user = User.new params.require(:user).permit(:username, :email, :name, :password, :invitation_code).merge(locale: locale)
+    if @user.check_invitation_code && @user.save
       login_as @user
       UserMailer.confirmation(@user.id).deliver
       redirect_back_or_default root_url

@@ -20,6 +20,7 @@ en:
         bio: Bio
         created_at: Created at
         email: Email
+        invitation_code: Invitation code
         locale: Locale
         name: Name
         password: Password
@@ -136,6 +137,7 @@ en:
       logout: Logout
       profile: Profile
       settings: Settings
+      invite: Invitation
       sign_in: Sign in
       sign_up: Sign up
       topics: Topics
@@ -322,6 +324,23 @@ en:
         confirm_fail: Confirm fail
         confirmation_toke_invalid_or_expired_please_resend: Confirmation toke invalid
           or expired, please resend.
+    invitations:
+      index:
+        get_invitation: Invite!
+        no_invitations_yet: No invitations yet
+        user_s_invitations: "%{name}'s invitations"
+        your_invitatioins_are: "Congratulations!Invite your friends with the invitation codes:"
+        invitations_left: "You can still get %{number} invitation codes."
+        invitations_used: "The invitations used:"
+      create:
+        invitations_left: "You can still get %{number} invitation codes."
+      show:
+        invitation: Invitation
+        click_to_share: Click the button to share!
+        invitation_from: "Invitation from"
+        your_invitation_is: "Your invitation code is:"
+        click_to_signup: Click the following button to sign up with the invitation code
+        signup_now: Sign Up Now
     new:
       choose_a_password: Choose a password
       create_account: Create account
@@ -329,6 +348,7 @@ en:
       sign_up: Sign up
       your_email: Your email
       your_full_name: Your full name
+      your_invitation_code: Your invitation code
     passwords:
       edit:
         password_reset: Password reset

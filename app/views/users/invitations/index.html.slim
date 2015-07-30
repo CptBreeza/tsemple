@@ -1,0 +1,37 @@
+- @page_title = t '.user_s_invitations', name: @user.name
+
+.main
+  .container
+    .row
+      .col-md-3
+        = render 'users/profile', user: @user
+        = render 'users/sidebar'
+      .col-md-9
+        #invitations.panel
+          .panel-body
+            .panel.panel-info.invitation_area
+              .panel-heading.invitation_head
+                - if @invitations.any?
+                  = t '.your_invitatioins_are'
+                - else
+                  = t '.no_invitations_yet'
+              = render @invitations
+          .panel-body
+            .panel.panel-info.invitation_used_area
+              .panel-heading.invitation_head
+                - if @invitations_used.any?
+                  = t '.invitations_used'
+              = render @invitations_used
+            .create_invitation_area
+              = form_for [:user, @invitation], remote: true do |f|
+                span
+                  - if !@user.admin? && (@user.invitation_limit - @user.invitations.count == 0)
+                    = f.submit t('.get_invitation'), class: 'btn btn-success', disabled: 'disabled'
+                  - else
+                    = f.submit t('.get_invitation'), class: 'btn btn-success'
+                  - unless @user.admin?
+                    p.pull-right.invitation_info
+                      = t '.invitations_left', number: @user.invitation_limit - @invitations.count
+
+javascript:
+  var invitation_url = "#{user_invitations_url}";

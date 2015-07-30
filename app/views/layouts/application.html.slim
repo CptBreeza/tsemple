@@ -5,6 +5,7 @@ html
       = @page_title ? "#{@page_title} - #{CONFIG['title']}" : CONFIG['title']
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "jquery.qrcode.min.js"
     - if I18n.locale != 'en'
       = javascript_include_tag "locales/#{I18n.locale}"
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
@@ -47,7 +48,11 @@ html
                     = t '.topics'
                 li
                   a href=likes_user_comments_path(username: current_user.username)
-                    = t '.comments'
+                    =  'comments'
+                li.divider
+                li
+                  a href=user_invitations_path(username: current_user.username)
+                    = t '.invite'
                 li.divider
                 li
                   a href=settings_account_path

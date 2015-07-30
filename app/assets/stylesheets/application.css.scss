@@ -17,6 +17,9 @@ $font-size-base: 15px;
 @import "subscriptions";
 @import "markdown";
 @import "jquery.atwho";
+@import "invitations";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
   background: #eee;

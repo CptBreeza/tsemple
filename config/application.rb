@@ -28,7 +28,5 @@ module Campo
       g.assets false
       g.helper false
     end
-
-    config.active_record.schema_format = :sql
   end
 end

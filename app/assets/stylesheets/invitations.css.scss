@@ -1,0 +1,57 @@
+.invitation_area, .invitation_used_area {
+  .panel-body:hover {
+    font-size: 17px;
+    background-color: #f5f5f5;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .share-icon {
+    visibility: hidden;
+  }
+}
+
+.qrbox {
+  height: 170px;
+  width: 145px;
+  background-color: white;
+  display: none;
+  border: 10px solid white;
+  box-shadow: 0 2px 7px rgba(68, 68, 68, .5);
+  position: absolute;
+  z-index: 1;
+
+  &::after {
+    content: '扫一扫分享给朋友';
+    font-size: 15px;
+  }
+}
+
+.invitation_heading {
+  .tips, .fa-hand-o-up {
+    color: #999999;
+  }
+  .fa-hand-o-up {
+    margin-left: .5em;
+  }
+}
+
+.invitation_box {
+  width: 80%;
+  height: auto;
+  background-color: #fcf8e3;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.signup_with_invitation {
+  width: 80%;
+  margin: 0 auto;
+
+  .btn {
+    width: 100%;
+  }
+}

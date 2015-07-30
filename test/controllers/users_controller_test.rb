@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  def setup
+    @invitation = Invitation.create
+  end
+
   test "should get new page" do
     get :new
     assert_response :success, @response.body
@@ -14,7 +18,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should create user" do
     assert !login?
     assert_difference ["User.count", "ActionMailer::Base.deliveries.size"] do
-      post :create, user: attributes_for(:user)
+      post :create, user: attributes_for(:user).merge(invitation_code: @invitation.code)
     end
     assert login?
   end
@@ -22,14 +26,14 @@ class UsersControllerTest < ActionController::TestCase
   test "should create user with locale" do
     @request.headers['http_accept_language.parser'] = HttpAcceptLanguage::Parser.new('zh-CN')
     assert_difference "User.count" do
-      post :create, user: attributes_for(:user)
+      post :create, user: attributes_for(:user).merge(invitation_code: @invitation.code)
     end
     assert_equal 'zh-CN', User.last.locale
   end
 
   test "should redirect back after signup" do
     session[:return_to] = '/foo'
-    post :create, user: attributes_for(:user)
+    post :create, user: attributes_for(:user).merge(invitation_code: @invitation.code)
     assert_redirected_to '/foo'
   end
 
@@ -38,7 +42,7 @@ class UsersControllerTest < ActionController::TestCase
     get :new
     assert_redirected_to root_url
 
-    post :create, user: attributes_for(:user)
+    post :create, user: attributes_for(:user).merge(invitation_code: @invitation.code)
     assert_redirected_to root_url
   end
 
